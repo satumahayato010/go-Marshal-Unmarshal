@@ -11,6 +11,15 @@ type Book struct {
 	Publisher string `json:"publisher"`
 }
 
+func (b Book) MarshalJSON() ([]byte, error) {
+	v, err := json.Marshal(&struct {
+		Publisher string
+	}{
+		Publisher: b.Publisher + " Japan",
+	})
+	return v, err
+}
+
 func main() {
 	b := []byte(`{"title": "リーダブルコード", "author": "Trevor Foucher", "Publisher": "OREILLY"}`)
 	var book Book
