@@ -18,4 +18,10 @@ func main() {
 		fmt.Println(err)
 	}
 	fmt.Println(book.Title, book.Author, book.Publisher)
+
+	v, err := json.Marshal(book)
+	if err != nil {
+		fmt.Println(err)
+	}
+	fmt.Println(string(v))
 }
