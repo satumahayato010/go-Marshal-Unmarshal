@@ -11,14 +11,14 @@ type Book struct {
 	Publisher string `json:"publisher"`
 }
 
-//func (b Book) MarshalJSON() ([]byte, error) {
-//	v, err := json.Marshal(&struct {
-//		Publisher string
-//	}{
-//		Publisher: b.Publisher + " Japan",
-//	})
-//	return v, err
-//}
+func (b Book) MarshalJSON() ([]byte, error) {
+	v, err := json.Marshal(&struct {
+		Publisher string
+	}{
+		Publisher: b.Publisher + " Japan",
+	})
+	return v, err
+}
 
 func (b *Book) UnmarshalJSON(byte []byte) error {
 	type Book2 struct {
