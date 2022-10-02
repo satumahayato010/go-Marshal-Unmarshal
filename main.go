@@ -6,9 +6,9 @@ import (
 )
 
 type Book struct {
-	Title     string
-	Author    string
-	Publisher string
+	Title     string `json:"title"`
+	Author    string `json:"author"`
+	Publisher string `json:"publisher"`
 }
 
 func main() {
